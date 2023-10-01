@@ -1,0 +1,32 @@
+<div class="home">
+
+  <div class="row home-row">
+    <div class="col left-bar bg-dark-grey">
+      <p>left bar</p>
+    </div>
+    <div class="col">
+<!--      <div class="container" >-->
+<!--        <div class="card-deck">-->
+        <div class="card-container">
+          <div class="card" *ngFor="let product of products">
+            <div class="card-img-container">
+              <img class="card-img-top" src="{{product.image}}" alt="Card image cap">
+            </div>
+            <div class="card-body" >
+              <h5 class="card-title">{{product.title}}</h5>
+              <p class="card-text category">{{product.category}}</p>
+              <h5 class="card-title price">{{product.price}}$</h5>
+              <div style="display: flex">
+                <div class="rating">
+                  <img class="rating-star" src="https://clipart-library.com/img/846480.png" alt="Rating: ">
+                  <p class="rating-value">{{product.rating.rate}}</p>
+                </div>
+                <a class="detail-btn btn btn-primary" href="/product/{{product.id}}">See more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+<!--      </div>-->
+    </div>
+  </div>
+</div>
