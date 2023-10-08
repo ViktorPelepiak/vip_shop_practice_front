@@ -6,21 +6,31 @@ import { AppComponent } from './app.component';
 import {ProductComponent} from "./components/product-component/product.component";
 import {HomeComponent} from "./components/home/home.component";
 import {HeaderComponent} from "./components/header/header.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { RegistrationComponent } from './components/security/registration/registration.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './components/security/login/login.component';
+import {ConfirmationComponent} from "./components/security/confirmation/confirmation.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    ProductComponent
+    ProductComponent,
+    LoginComponent,
+    RegistrationComponent,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    HttpClient
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

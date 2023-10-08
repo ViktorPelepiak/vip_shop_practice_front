@@ -1,0 +1,42 @@
+<div id="tokenConfirmation" class="d-flex align-items-center justify-content-center">
+
+  <div class="confirmation-card">
+    <div *ngIf="isWithoutToken">
+      Thanks for registration!
+      <br>
+      A letter to confirm registration has been sent to your mail.
+    </div>
+
+    <div *ngIf="pageVisible">
+
+      <div *ngIf="isVerificationSucceeded">
+        Thanks for the email confirmation!
+        <br>
+        Please <a class="nav-link" [routerLink]="['/login']">log in</a> to continue working
+      </div>
+      <div *ngIf="!isVerificationSucceeded" [ngSwitch]="reason">
+        <div *ngSwitchCase="'TOKEN_EXPIRED'">
+          Sorry, but the time allotted to confirm your email has expired!
+          <br>
+          To resend the confirmation request, click on the button
+          <form [formGroup]="tokenResend" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Send a request
+              </button>
+            </div>
+          </form>
+        </div>
+        <div *ngSwitchCase="'TOKEN_NOT_FOUND'">
+          Sorry, but the link is not valid!
+        </div>
+        <div *ngSwitchDefault>
+          Oops! Something went wrong.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
