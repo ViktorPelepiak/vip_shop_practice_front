@@ -1,0 +1,89 @@
+.new-item-container {
+  height: calc(100% - 64px);
+  width: 100%;
+
+  margin: 0;
+
+  display: flex;
+  align-content: center;
+}
+
+.form-card {
+  min-height: 85%;
+  width: 85%;
+
+  margin: auto;
+  padding: 2rem;
+
+  border-radius: 2rem;
+  background-color: rgba(211,211,211, .9);
+}
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-drop-box {
+  min-height: 300px;
+  min-width: 300px;
+  display: table;
+  background-color: #c6e4f1;
+  border: solid 1px #75c5e7;
+}
+
+.img-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-message {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: #686868;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+
+  margin: auto;
+}
+
+.img-message {
+  margin: auto;
+}
+
+.img-row.img-drag-and-drop {
+  text-align: center;
+}
+
+.img-row.img-display {
+  min-height: 300px;
+  min-width: 300px;
+  display: none;
+  background-color: gray;
+}
+
+.img-row.img-display > span {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+}
+
+.btn-outline-danger {
+  color: inherit;
+  border-color: transparent;
+}
+
+textarea {
+  resize: none;
+}
+
+.btn-options {
+  width: 10rem;
+  margin-right: 1rem;
+}

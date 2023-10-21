@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Product} from "../../models/product";
+import {AuthenticationService} from "../../services/authentication.service";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-home',
@@ -10,13 +12,20 @@ import {Product} from "../../models/product";
 })
 export class HomeComponent {
 
+  isLoggedUserIsAdmin : Boolean;
   public products: Product[] = [];
 
-  constructor(private http: HttpClient) {
-    this.http.get<Product[]>('https://fakestoreapi.com/products')
-      .subscribe(res => {
-        this.products = res;
-      });
+  constructor(private productService: ProductService,
+              private authService: AuthenticationService) {
+    this.isLoggedUserIsAdmin = authService.isAdmin();
+    // this.http.get<Product[]>('https://fakestoreapi.com/products')
+    //   .subscribe(res => {
+    //     this.products = res;
+    //   });
+
+    this.productService.getAll().subscribe( data => {
+      this.products = data.result;
+    })
 
   }
 

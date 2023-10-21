@@ -1,0 +1,95 @@
+<div class="new-item-container">
+  <div class="form-card">
+    <!--    <div id="registration" class="d-flex align-items-center justify-content-center">-->
+    <div class="row form">
+      <div class="col-md-10 offset-md-1">
+        <!--      <h3>Реєстрація</h3>-->
+        <form [formGroup]="newItemForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Title</label>
+                <input type="text" formControlName="title" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.title.errors }"/>
+                <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                  <div *ngIf="f.title.errors.required">Title is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Category</label>
+                <select formControlName="categoryId" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.categoryId.errors }">
+                  <option *ngFor="let category of this.categories" value="{{category.id}}">{{category.name}}</option>
+                </select>
+                <div *ngIf="submitted && f.categoryId.errors" class="invalid-feedback">
+                  <div *ngIf="f.categoryId.errors.required">Category is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Price</label>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input type="text" formControlName="price" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.price.errors }"/>
+                </div>
+                <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+                  <div *ngIf="f.price.errors.required">Price is required</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <input id="img_up" type="file" formControlName="image" class="form-control" style="display: none"
+                     [ngClass]="{ 'is-invalid': submitted && f.image.errors }"/>
+              <div class="img-container">
+                <div class="img-row img-drag-and-drop">
+
+                  <div class="img-drop-box" appImageUploader (dropFiles)="onDropFiles($event)">
+                    <span class="img-message">Drop File Images Here</span>
+                  </div>
+                </div>
+                <div class="img-row img-display">
+                  <span><button type="button" class="btn btn-outline-danger" (click)="onImageRemove()">
+                    <i class="fa-solid fa-xmark fa-2xl" style="color: white;"></i>
+                  </button></span>
+                  <img *ngFor="let file of files" [src]="file.url"/>
+                </div>
+                <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                  <div *ngIf="f.image.errors.required">Image is required</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>Description</label>
+                <textarea formControlName="description" class="form-control"
+                          [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+<!--                <input type="text" formControlName="description" class="form-control"-->
+<!--                       [ngClass]="{ 'is-invalid': submitted && f.description.errors }"/>-->
+                <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                  <div *ngIf="f.description.errors.required">Description is required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary btn-options" [routerLink]="['/']">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-success btn-options">
+            Save
+          </button>
+        </form>
+      </div>
+
+
+    </div>
+    <!--    </div>-->
+  </div>
+</div>

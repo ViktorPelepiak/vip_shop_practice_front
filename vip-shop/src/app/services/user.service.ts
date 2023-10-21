@@ -22,8 +22,6 @@ export class UserService {
   }
 
   public register(user: User): Observable<User> {
-    console.log(user);
-    // return this.http.post<User>(SERVER_URL + `/registration`, user);
     return this.http.post<User>(SERVER_URL + `/security/registration`, user, HTTP_OPTIONS);
   }
   public confirmRegistration(token: string): Observable<CustomResponse> {
