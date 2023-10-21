@@ -11,6 +11,8 @@ import { RegistrationComponent } from './components/security/registration/regist
 import {ReactiveFormsModule} from "@angular/forms";
 import { LoginComponent } from './components/security/login/login.component';
 import {ConfirmationComponent} from "./components/security/confirmation/confirmation.component";
+import { NewItemComponent } from './components/new-item/new-item.component';
+import { ImageUploaderDirective } from './directives/image-uploader.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import {ConfirmationComponent} from "./components/security/confirmation/confirma
     ProductComponent,
     LoginComponent,
     RegistrationComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    NewItemComponent,
+    ImageUploaderDirective
   ],
   imports: [
     BrowserModule,
