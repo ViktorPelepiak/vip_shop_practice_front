@@ -13,6 +13,7 @@ import { LoginComponent } from './components/security/login/login.component';
 import {ConfirmationComponent} from "./components/security/confirmation/confirmation.component";
 import { NewItemComponent } from './components/new-item/new-item.component';
 import { ImageUploaderDirective } from './directives/image-uploader.directive';
+import { OrdersComponent } from './components/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ImageUploaderDirective } from './directives/image-uploader.directive';
     RegistrationComponent,
     ConfirmationComponent,
     NewItemComponent,
-    ImageUploaderDirective
+    ImageUploaderDirective,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

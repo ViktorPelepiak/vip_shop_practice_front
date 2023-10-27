@@ -41,6 +41,36 @@
 <!--            <a class="dropdown-item" href="#">Something else here</a>-->
 <!--          </div>-->
 <!--        </div>-->
+        <div class="dropdown cart" *ngIf="activeCart && activeCart.items.length > 0">
+          <a  type="button" id="cartDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-cart-shopping fa-2xl" style=" color: #d2d2d2;"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right cart-dropdown" aria-labelledby="cartDropdown">
+            <div *ngFor="let item of this.activeCart.items" class="cart-line">
+              <div class="cart-title">
+                {{item.title}}
+              </div>
+              <div class="cart-quantity">
+                {{item.quantity}}
+              </div>
+              <div class="cart-item-price">
+                {{item.price}}
+              </div>
+            </div>
+            <div class="cart-total-price">
+              <div>
+                {{activeCart.price}}
+              </div>
+            </div>
+            <div class="cart-total-price">
+              <div>
+                <button class="btn btn-success btn-buy" type="button" (click)="orderActiveCart()">
+                  Buy now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="dropdown">
           <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

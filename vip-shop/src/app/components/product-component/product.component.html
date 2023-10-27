@@ -1,1 +1,43 @@
-<p>product-component works!</p>
+<div class="new-item-container">
+  <div class="form-card">
+    <div class="row form">
+      <div *ngIf="this.product" class="col-md-10 offset-md-1">
+        <div class="row">
+          <div class="col img-container">
+            <div class="img-row img-display">
+              <img class="card-img-top" src="{{this.product.image}}" alt="Card image cap">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="title">
+            {{this.product.title}}
+          </div>
+          <div class="separator">
+            &nbsp;/&nbsp;
+          </div>
+          <div class="category">
+            {{this.product.category}}
+          </div>
+        </div>
+        <div class="row price">
+          <i class="fa-solid fa-dollar-sign fa-2xl"></i>
+          <h2>{{this.product.price}}</h2>
+          <button type="button" class="btn btn-success btn-add-to-cart" (click)="addToCart()">
+            <i class="fa-solid fa-cart-plus"></i>
+            Add to cart
+          </button>
+        </div>
+        <div class="row">
+          <div class="col description">
+            {{this.product.description}}
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-back" routerLink="/">
+        <i class="fa-solid fa-arrow-left fa-2xl"></i>
+      </button>
+    </div>
+  </div>
+</div>
