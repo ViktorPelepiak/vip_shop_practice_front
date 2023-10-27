@@ -1,9 +1,7 @@
 <div class="new-item-container">
   <div class="form-card">
-    <!--    <div id="registration" class="d-flex align-items-center justify-content-center">-->
     <div class="row form">
       <div class="col-md-10 offset-md-1">
-        <!--      <h3>Реєстрація</h3>-->
         <form [formGroup]="newItemForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col">
@@ -70,8 +68,6 @@
                 <label>Description</label>
                 <textarea formControlName="description" class="form-control"
                           [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
-<!--                <input type="text" formControlName="description" class="form-control"-->
-<!--                       [ngClass]="{ 'is-invalid': submitted && f.description.errors }"/>-->
                 <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
                   <div *ngIf="f.description.errors.required">Description is required</div>
                 </div>
@@ -87,9 +83,6 @@
           </button>
         </form>
       </div>
-
-
     </div>
-    <!--    </div>-->
   </div>
 </div>

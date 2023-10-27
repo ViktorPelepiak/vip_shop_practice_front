@@ -1,0 +1,65 @@
+.orders-container {
+  height: calc(100% - 64px);
+  width: 100%;
+
+  margin: 0;
+
+  display: flex;
+  align-content: center;
+}
+
+.orders-card {
+  min-height: 85%;
+  width: 85%;
+
+  margin: auto;
+  padding: 2rem;
+
+  border-radius: 2rem;
+  background-color: rgba(211,211,211, .9);
+}
+
+.order-card {
+  width: 100%;
+  padding: 1rem;
+  background-color: #aaa;
+  border-radius: 1rem;
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.order-number {
+  margin-left: 2rem;
+  width: 6rem;
+}
+
+.order-status {
+  width: 6rem;
+}
+
+.order-date {
+  margin-left: auto;
+  margin-right: auto;
+  width: 13rem;
+}
+
+.order-price {
+  margin-left: auto;
+  margin-right: 3rem;
+}
+
+.order-pay {
+  width: 6rem;
+}
+
+.btn-pay {
+  width: 6rem;
+  font-size: 1.5rem;
+}
+
+.label {
+  font-size: 1rem;
+  margin-bottom: -0.5rem;
+}
+
+

@@ -78,9 +78,8 @@
             <p class="username">{{authenticatedUser}}</p>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" [routerLink]="['/orders']">My orders</a>
             <a class="dropdown-item" href="/" (click)=handleLogout()>Logout</a>
-<!--            <a class="dropdown-item" href="#">Another action</a>-->
-<!--            <a class="dropdown-item" href="#">Something else here</a>-->
           </div>
         </div>
       </div>
