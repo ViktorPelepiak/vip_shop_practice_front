@@ -17,4 +17,8 @@ export class CartService {
   public orderActiveCart() : Observable<CustomResponse> {
     return this.http.put<CustomResponse>(SERVER_URL + '/carts/active/order', {}, HTTP_OPTIONS);
   }
+
+  public getOrderedCarts() : Observable<CustomResponse> {
+    return this.http.get<CustomResponse> (SERVER_URL + '/carts/ordered', HTTP_OPTIONS);
+  }
 }

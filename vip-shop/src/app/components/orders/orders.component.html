@@ -1,0 +1,33 @@
+<div class="orders-container">
+  <div class="orders-card">
+    <div class="row form">
+      <div class="col-md-10 offset-md-1">
+
+        <div class="order-card" *ngFor="let order of this.carts">
+          <div class="order-number">
+            <div class="label">Order Id</div>
+            {{order.id}}
+          </div>
+          <div class="order-status">
+            <div class="label">Order Status</div>
+            {{order.status}}
+          </div>
+          <div class="order-date">
+            <div class="label">Ordering Date</div>
+            {{order.orderingDate}}
+          </div>
+          <div class="order-price">
+            <div class="label">Price</div>
+            $&nbsp;{{order.price}}
+          </div>
+          <div class="order-pay">
+            <button class="btn btn-success btn-pay" *ngIf="order.status === 'ORDERED'">
+              Pay
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
