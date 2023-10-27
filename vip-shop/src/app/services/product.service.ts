@@ -14,8 +14,16 @@ export class ProductService {
     return this.http.get<CustomResponse> (SERVER_URL + '/products', HTTP_OPTIONS);
   }
 
+  public getProductById(id: string): Observable<CustomResponse> {
+    return this.http.get<CustomResponse> (SERVER_URL + '/products/' + id, HTTP_OPTIONS);
+  }
+
   public save(productInfo: ProductSaveDto, fileArray: number[]): Observable<CustomResponse> {
     productInfo.image = fileArray;
     return this.http.post<CustomResponse>(SERVER_URL + '/products', productInfo, HTTP_OPTIONS);
+  }
+
+  public addToCart(productId: number): Observable<CustomResponse> {
+    return this.http.get<CustomResponse>(SERVER_URL + "/carts/addProduct/" + productId, HTTP_OPTIONS);
   }
 }

@@ -73,3 +73,57 @@ nav {
   border-left: 0.5rem solid transparent;
   color: rgb(211,211,211);
 }
+
+.cart {
+  margin-right: 2rem;
+  margin-top: 0.35rem;
+}
+
+.cart-dropdown {
+  padding: 1rem;
+}
+
+.cart-line {
+  display: flex;
+  min-width: 25rem;
+
+  font-size: 1.25rem;
+
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+}
+
+.cart-title {
+  margin-left: 0.5rem;
+  margin-right: auto;
+}
+
+.cart-quantity {
+  margin-left: auto;
+  margin-right: 0.5rem;
+
+  width: 4rem;
+  text-align: center;
+  border-left: 1px solid #aaa;
+}
+
+.cart-item-price {
+  margin-right: 0.5rem;
+  width: 5rem;
+  text-align: center;
+  border-left: 1px solid #aaa;
+}
+
+.cart-total-price {
+  display: flex;
+  min-width: 25rem;
+}
+
+.cart-total-price > div {
+  margin-left: auto;
+  width: 5.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+}
