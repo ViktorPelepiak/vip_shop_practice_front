@@ -141,3 +141,10 @@
   margin: auto;
   color: #000000
 }
+
+.see-more-container {
+  display: flex;
+  position: absolute;
+  left: 10rem;
+  bottom: 2rem;
+}
