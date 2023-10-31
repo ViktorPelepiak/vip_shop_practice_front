@@ -1,0 +1,28 @@
+.debtors-container {
+  height: calc(100% - 64px);
+  width: 100%;
+
+  margin: 0;
+
+  display: flex;
+  align-content: center;
+}
+
+.debtors-card {
+  min-height: 85%;
+  width: 85%;
+
+  margin: auto;
+  padding: 2rem;
+
+  border-radius: 2rem;
+  background-color: rgba(211,211,211, .9);
+}
+
+.debt-notification-card {
+  background-color: rgb(211,211,211);
+  border-radius: 2rem;
+  padding: 3rem;
+  margin-top: 15rem;
+  text-align: center;
+}

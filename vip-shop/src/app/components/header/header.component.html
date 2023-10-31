@@ -10,6 +10,10 @@
         </a>
       </li>
 
+      <div *ngIf="isUserLoggedIn && isUserBlocked" class="debt-notification">
+        <p>!!!You have an order that has not been paid for more than two weeks!!!</p>
+      </div>
+
       <div  *ngIf="!isUserLoggedIn" class="auth-container">
         <li>
           <a class="nav-link btn-auth" [routerLink]="['/login']">
@@ -65,7 +69,7 @@
             <div class="cart-total-price">
               <div>
                 <button class="btn btn-success btn-buy" type="button" (click)="orderActiveCart()">
-                  Buy now
+                  Order now
                 </button>
               </div>
             </div>
@@ -78,6 +82,7 @@
             <p class="username">{{authenticatedUser}}</p>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" *ngIf="isLoggedUserIsAdmin" [routerLink]="['/debtors']">Debtors</a>
             <a class="dropdown-item" [routerLink]="['/orders']">My orders</a>
             <a class="dropdown-item" href="/" (click)=handleLogout()>Logout</a>
           </div>

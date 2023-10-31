@@ -1,0 +1,40 @@
+<div class="debtors-container">
+  <div class="debtors-card">
+    <div *ngIf="this.debtors && this.debtors.length == 0" class="debtors-empty">
+      <p>There is no debtors now!</p>
+    </div>
+    <div *ngIf="this.debtors && this.debtors.length > 0" class="row form">
+      <div class="col offset-md-1">
+        <table class="debtors-table">
+          <tr>
+            <th class="debtor-name">Username</th>
+            <th class="debtor-email">Email</th>
+            <th class="debtor-status">Is Blocked</th>
+            <th class="debtor-btn"></th>
+          </tr>
+          <tr *ngFor="let debtor of this.debtors">
+            <td>
+              {{debtor.username}}
+            </td>
+            <td>
+              {{debtor.email}}
+            </td>
+            <td class="form-check-input-cell">
+              <input type="checkbox" class="form-check-input" disabled checked *ngIf="debtor.blocked">
+              <input type="checkbox" class="form-check-input" disabled *ngIf="!debtor.blocked">
+            </td>
+            <td>
+              <button *ngIf="!debtor.blocked" class="btn btn-danger" type="button" (click)="blockUser(debtor.id)">
+                Block
+              </button>
+              <button *ngIf="debtor.blocked" class="btn btn-success" type="button" (click)="unblockUser(debtor.id)">
+                Unblock
+              </button>
+            </td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+.debtors-container {
+  height: calc(100% - 64px);
+  width: 100%;
+
+  margin: 0;
+
+  display: flex;
+  align-content: center;
+}
+
+.debtors-card {
+  min-height: 85%;
+  width: 85%;
+
+  margin: auto;
+  padding: 2rem;
+
+  border-radius: 2rem;
+  background-color: rgba(211,211,211, .9);
+}
+
+.debtors-empty {
+  min-height: 30rem;
+  display: flex;
+}
+.debtors-empty > p {
+  margin: auto;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.debtors-table {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.debtor-name {
+  width: 25%;
+}
+
+.debtor-email {
+  width: 25%;
+}
+
+.debtor-status {
+  width: 25%;
+}
+
+.debtor-btn {
+  width: 25%;
+}
+
+.form-check-input {
+  width: 2rem;
+  height: 2rem;
+  margin-top: -1rem;
+}
+
+.form-check-input-cell {
+  text-align: center;
+}
+

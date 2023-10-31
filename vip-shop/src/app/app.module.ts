@@ -14,6 +14,8 @@ import {ConfirmationComponent} from "./components/security/confirmation/confirma
 import { NewItemComponent } from './components/new-item/new-item.component';
 import { ImageUploaderDirective } from './directives/image-uploader.directive';
 import { OrdersComponent } from './components/orders/orders.component';
+import { DebtorsComponent } from './components/debtors/debtors.component';
+import { DebtNotificationComponent } from './components/debt-notification/debt-notification.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { OrdersComponent } from './components/orders/orders.component';
     ConfirmationComponent,
     NewItemComponent,
     ImageUploaderDirective,
-    OrdersComponent
+    OrdersComponent,
+    DebtorsComponent,
+    DebtNotificationComponent
   ],
   imports: [
     BrowserModule,

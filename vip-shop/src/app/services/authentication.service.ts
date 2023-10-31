@@ -11,6 +11,7 @@ export class AuthenticationService {
   static USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
   static USER_ROLE = 'userRole';
   static USERNAME = 'username';
+  static IS_USER_BLOCKED = 'isUserBlocked';
 
   public email: string;
   public password: string;
@@ -31,7 +32,7 @@ export class AuthenticationService {
     return this.http.post<any>(`${SERVER_URL}/security/login`, credentials, HTTP_OPTIONS)
       .pipe(map((res) => {
       this.email = credentials.login;
-      this.registerSuccessfulLogin(credentials.login, res.result.username, res.result.role);
+      this.registerSuccessfulLogin(credentials.login, res.result.username, res.result.role, res.result.blocked);
     }));
   }
 
@@ -39,10 +40,11 @@ export class AuthenticationService {
     return 'Basic ' + btoa(email + ':' + password);
   }
 
-  registerSuccessfulLogin(email : string, username: string, role : string) {
+  registerSuccessfulLogin(email : string, username: string, role : string, isBlocked : boolean) {
     sessionStorage.setItem(AuthenticationService.USER_NAME_SESSION_ATTRIBUTE_NAME, email);
     sessionStorage.setItem(AuthenticationService.USERNAME, username)
     sessionStorage.setItem(AuthenticationService.USER_ROLE, role);
+    sessionStorage.setItem(AuthenticationService.IS_USER_BLOCKED, String(isBlocked));
   }
 
   logout() {
@@ -58,9 +60,13 @@ export class AuthenticationService {
   }
 
   isAdmin() {
-    let user = sessionStorage.getItem(AuthenticationService.USER_ROLE);
-    console.log(user);
-    console.log("isAdmin => " + (user != null && user.split(",").includes('ADMIN')));
-    return user != null && user.split(",").includes('ADMIN');
+    let userRoles = sessionStorage.getItem(AuthenticationService.USER_ROLE);
+    console.log(userRoles);
+    console.log("isAdmin => " + (userRoles != null && userRoles.split(",").includes('ADMIN')));
+    return userRoles != null && userRoles.split(",").includes('ADMIN');
+  }
+
+  isUserBlocked() : boolean{
+    return 'true' == sessionStorage.getItem(AuthenticationService.IS_USER_BLOCKED);
   }
 }

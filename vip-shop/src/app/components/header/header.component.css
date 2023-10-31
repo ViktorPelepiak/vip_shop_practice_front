@@ -127,3 +127,13 @@ nav {
   border: 1px solid #aaa;
   border-radius: 0.25rem;
 }
+
+.debt-notification {
+  color: red;
+  font-size: 1.25rem;
+}
+
+.debt-notification > p {
+  margin-top: 2rem;
+}
+

@@ -31,4 +31,16 @@ export class UserService {
   public resendConfirmationToken(token: string): Observable<string> {
     return this.http.get(SERVER_URL + `/security/token/update?token=` + token, {responseType: 'text'});
   }
+
+  public getDebtors(): Observable<CustomResponse> {
+    return this.http.get<CustomResponse>(SERVER_URL + '/users/debtors', HTTP_OPTIONS);
+  }
+
+  public blockUser(userId: number): Observable<CustomResponse> {
+    return this.http.put<CustomResponse>(SERVER_URL + '/users/block/'+ userId, {}, HTTP_OPTIONS);
+  }
+
+  public unblockUser(userId: number): Observable<CustomResponse> {
+    return this.http.put<CustomResponse>(SERVER_URL + '/users/unblock/'+ userId, {}, HTTP_OPTIONS);
+  }
 }

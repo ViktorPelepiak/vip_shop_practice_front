@@ -7,6 +7,8 @@ import {ConfirmationComponent} from "./components/security/confirmation/confirma
 import {NewItemComponent} from "./components/new-item/new-item.component";
 import {ProductComponent} from "./components/product-component/product.component";
 import {OrdersComponent} from "./components/orders/orders.component";
+import {DebtorsComponent} from "./components/debtors/debtors.component";
+import {DebtNotificationComponent} from "./components/debt-notification/debt-notification.component";
 
 const routes: Routes = [
   {path: "",                  component: HomeComponent},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path: "user/verification", component: ConfirmationComponent},
   {path: "item/new",          component: NewItemComponent},
   {path: "item/:id",          component: ProductComponent},
-  {path: "orders",            component: OrdersComponent}
+  {path: "orders",            component: OrdersComponent},
+  {path: "debtors",           component: DebtorsComponent},
+  {path: "debt-notification", component: DebtNotificationComponent}
 ];
 
 @NgModule({

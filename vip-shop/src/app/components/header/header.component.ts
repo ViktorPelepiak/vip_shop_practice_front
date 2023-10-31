@@ -12,6 +12,7 @@ import {CartService} from "../../services/cart.service";
 export class HeaderComponent {
   isUserLoggedIn: Boolean
   isLoggedUserIsAdmin: Boolean
+  isUserBlocked: Boolean
   authenticatedUser: string | null
   activeCart: CartShort | null = null;
 
@@ -22,6 +23,7 @@ export class HeaderComponent {
     this.isUserLoggedIn = authService.isUserLoggedIn();
     this.isLoggedUserIsAdmin = authService.isAdmin();
     this.authenticatedUser = sessionStorage.getItem(AuthenticationService.USERNAME);
+    this.isUserBlocked = authService.isUserBlocked();
 
     if (this.isUserLoggedIn) {
       cartService.getActiveCart().subscribe( response => {
@@ -36,7 +38,11 @@ export class HeaderComponent {
 
   orderActiveCart() {
     this.cartService.orderActiveCart().subscribe( response => {
-      console.log(response.result);
+      if (this.isUserBlocked) {
+        this.router.navigate(['debt-notification'])
+      } else if (response.success) {
+        this.router.navigate(['orders']);
+      }
     })
   }
 }
