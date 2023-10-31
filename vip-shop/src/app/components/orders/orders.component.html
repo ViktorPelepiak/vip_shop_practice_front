@@ -20,10 +20,13 @@
             <div class="label">Price</div>
             $&nbsp;{{order.price}}
           </div>
-          <div class="order-pay">
-            <button class="btn btn-success btn-pay" *ngIf="order.status === 'ORDERED'">
-              Pay
-            </button>
+          <div class="order-pay" [innerHtml]="sanitizer.bypassSecurityTrustHtml(order.payButton)">
+<!--            <button class="btn btn-success btn-pay" *ngIf="order.status === 'ORDERED'">-->
+<!--              Pay-->
+<!--            </button>-->
+
+<!--            {{order.payButton}}-->
+
           </div>
         </div>
 

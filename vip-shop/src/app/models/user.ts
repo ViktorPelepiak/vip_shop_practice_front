@@ -19,12 +19,14 @@ export class UserLoginDto {
 export class UserResponse {
   email: string;
   username: string;
+  blocked: boolean;
   roles: string;
 
 
-  constructor(email: string, username: string, roles: string) {
+  constructor(email: string, username: string, blocked: boolean, roles: string) {
     this.email = email;
     this.username = username;
+    this.blocked = blocked
     this.roles = roles;
   }
 }

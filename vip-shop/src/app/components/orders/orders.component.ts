@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {OrderShort} from "../../models/orderShort";
 import {CartService} from "../../services/cart.service";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-orders',
@@ -10,9 +11,14 @@ import {CartService} from "../../services/cart.service";
 export class OrdersComponent {
   public carts: OrderShort[]|undefined;
 
-  constructor(cartService: CartService) {
+  public sanitizer: DomSanitizer
+
+  constructor(cartService: CartService, sanitizer: DomSanitizer) {
+    this.sanitizer = sanitizer;
+
     cartService.getOrderedCarts().subscribe( response => {
       this.carts = response.result;
+      console.log(JSON.stringify(this.carts));
     })
   }
 }

@@ -21,6 +21,8 @@
 
 .order-card {
   width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 1rem;
   background-color: #aaa;
   border-radius: 1rem;
@@ -45,11 +47,11 @@
 
 .order-price {
   margin-left: auto;
-  margin-right: 3rem;
+  margin-right: 1rem;
 }
 
 .order-pay {
-  width: 6rem;
+  width: 10rem;
 }
 
 .btn-pay {
